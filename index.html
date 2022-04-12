@@ -1,0 +1,82 @@
+<html>
+
+<head>
+	<title>Calculator</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+	<center>
+		<h1>Calculator</h1>
+	</center>
+	<section>
+		<div class="container">
+			<input id="result" type="text" placeholder="Enter the Number" disabled>
+			<div class="buttons">
+				<div class="button" id="result" onclick="clearScreen()">C</div>
+				<div class="button" onclick="display('/')">/</div>
+				<div class="button" onclick="display('*')">*</div>
+				<div class="button" onclick="square()">x<sup>2</sup></div>
+				<div class="button" onclick="squareRoot()">√x</div>
+				<div class="button" onclick="display('7')">7</div>
+				<div class="button" onclick="display('8')">8</div>
+				<div class="button" onclick="display('9')">9</div>
+				<div class="button" onclick="display('-')">-</div>
+				<div class="button" onclick="display('4')">4</div>
+				<div class="button" onclick="display('5')">5</div>
+				<div class="button" onclick="display('6')">6</div>
+				<div class="button" onclick="display('+')">+</div>
+				<div class="button" onclick="display('1')">1</div>
+				<div class="button" onclick="display('2')">2</div>
+				<div class="button" onclick="display('3')">3</div>
+				<div class="button" onclick="display('.')">.</div>
+				<div class="button" onclick="display('(')">(</div>
+				<div class="button" onclick="display('0')">0</div>
+				<div class="button" onclick="display(')')">)</div>
+				<div style="width:100%" id="equal" onclick="calculate()">=</div>
+			</div>
+		</div>
+		<script>
+
+			
+			function clearScreen() {
+				document.getElementById("result").value = "";
+			}
+
+			function display(value) {
+				document.getElementById("result").value += value;
+			}
+
+			function calculate() {
+				var p = document.getElementById("result").value;
+				if (p == null || p == "" || p.length == 0 || p =="*/"|| p =="/*" || p=="+-" || p=="-+" ||p=="/+" || p=="--" || p=="++" || p=="*-"||p=="/-"|| p =="+)"|| p =="*)") {
+					clearScreen();
+					alert("Please enter a number");
+				}else{
+				var q = eval(p);
+				document.getElementById("result").value = q;
+				}
+			}
+			function square() {
+				var p = document.getElementById("result").value;
+				if (p == null || p == ""){
+					alert("Please enter a number");
+				}else{
+				var q = eval(p);
+				document.getElementById("result").value = q * q;
+				}
+			}
+			function squareRoot(){
+				var p = document.getElementById("result").value;
+				if (p == null || p == ""){
+					alert("Please enter a number");
+				}else{
+				var q = eval(p);
+				document.getElementById("result").value = Math.sqrt(q);
+				}
+			}
+		</script>
+	</section>
+</body>
+
+</html>
